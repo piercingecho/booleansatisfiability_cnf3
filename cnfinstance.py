@@ -1,7 +1,7 @@
 def makeCNFInstance(inputfile = "input.txt"):
     # ex: 1,2,3|-4,5,-6
 
-    variables = []
+    literals = []
     # [1,2,3,4,5,6]
     rules = []
     # [[(1, True), (2, True), (3, True)],
@@ -16,22 +16,21 @@ def makeCNFInstance(inputfile = "input.txt"):
         new_rule = []
         for strf_var in clause_vars:
             var = int(strf_var)
-            bool_value = (var > 0)
             var_value = abs(var)
 
-            if(not(var_value in variables)):
-                variables.append(var_value)
+            if(not(var_value in literals)):
+                literals.append(var_value)
 
-            new_rule.append((var_value, bool_value))
+            new_rule.append(var)
 
         rules.append(new_rule)
 
-    return variables, rules
+    return literals, rules
 
 
 def main():
-    variables, rules = makeCNFInstance()
-    print(variables)
+    literals, rules = makeCNFInstance()
+    print(literals)
     for rule in rules:
         print(rule)
 
