@@ -1,18 +1,21 @@
 import random
 
 def createThreeSatFile(maxNumVar, numClause, outfile):
-    # Note: no guarantee this will have exactly maxNumVar variables.
-    # This is because it is generated randomly. So, a way to count the
-    # number of variables and clauses is in countThreeSatFile.
 
     s = ""
+    nums = list(i for i in range(1, maxNumVar))
     for j in range(numClause):
         for i in range(3):
             # half chance for it to be "Not"
             if(random.randint(0,1)):
                 s += "-"
             
-            s += str(random.randint(1, maxNumVar))
+            if(nums):
+                index = random.randint(0, len(nums) - 1)
+                s += str(nums[index])
+                nums.pop(index)
+            else:
+                s += str(random.randint(1, maxNumVar))
 
             # variable delimiter
             if(i != 2):
@@ -38,13 +41,12 @@ def countThreeSatFile(infile):
             if not(updated_var in variables):
                 variables.append(updated_var)
 
-    print(variables)
     return len(clauses), len(variables)
 
 
 def main():
-    outfile = "biginput.txt"
-    createThreeSatFile(10, 10, outfile)
+    outfile = 'beeginput.txt'
+    createThreeSatFile(35, 500, outfile)
 
     numclause, numvar = countThreeSatFile(outfile)
     print("number variables:", numvar)

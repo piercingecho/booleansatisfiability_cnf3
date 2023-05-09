@@ -16,12 +16,11 @@ def bruteForceSAT(literals, rules):
     # number of variables set to "True".
     # Does so in a brute-force fashion. 
     
-    # we use a list of 'bits', 0 or 1, to depict true or false. This works because of python boolean rules.
     num_literals = len(literals)
     num_rules = len(rules)
+    # we use a list of 'bits', 0 or 1, to depict true or false. This works because of python boolean rules.
     original_combination = [0 for i in range(num_literals)]
     best_solution = Solution(original_combination, numSatisfied(literals, original_combination, rules))
-    print(best_solution.clauses_fulfilled)
 
     combination = original_combination.copy()
     decrement(combination)
@@ -48,7 +47,7 @@ def main():
     literals, rules = makeCNFInstance("biginput.txt")
     best_soln = bruteForceSAT(literals, rules)
 
-    print(best_soln)
+    print(best_soln.clauses_fulfilled)
 
 
 if __name__ == '__main__':

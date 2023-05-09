@@ -1,3 +1,5 @@
+# curr_solution = Solution(combination, numSatisfied(literals, combination, rules))
+
 class Solution:
     def __init__(self, literal_values, clauses_fulfilled):
         self.literal_values = literal_values

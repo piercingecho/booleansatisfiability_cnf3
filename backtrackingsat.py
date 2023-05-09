@@ -5,7 +5,6 @@ from sat_util import *
 def backtrackingSAT(literals, rules):
     # sort the literals based on frequency of literal in ruleset.
     lits = sorted(literals, key = lambda x: rules.count(x), reverse = True)
-
     soln_a = backtrackRecursive(lits, rules, [0])
     soln_b = backtrackRecursive(lits, rules, [1])
 
@@ -49,7 +48,7 @@ def backtrackRecursive(literals, rules, literal_values):
 
     else:
         # dummy solution returned, this is a bad part.
-        return Solution([0], 0)
+        return Solution([0] * len(literals), 0)
 
 
 def main():
@@ -58,6 +57,12 @@ def main():
     best_soln.addLiterals(literals)
     print(best_soln)
 
+def main():
+    literals, rules = makeCNFInstance("beeginput.txt")
+    best_soln = backtrackingSAT(literals, rules)
+    best_soln.addLiterals(literals)
+    print(len(best_soln.literal_values))
+    print(best_soln)
 
 if __name__ == '__main__':
     main()
