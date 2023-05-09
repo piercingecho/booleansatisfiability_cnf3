@@ -33,7 +33,7 @@ def main():
         bruteforcelist = []
         backtrackinglist = []
 
-        for i in range(5):
+        for i in range(num_iter_to_average):
             createThreeSatFile(num_literals, 500, filename)
             literals, rules = makeCNFInstance(filename)
             start_time = time.time()
