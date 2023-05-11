@@ -1,10 +1,12 @@
 # booleansatisfiability_cnf3
 
 The implementation here was in order to write an analysis comparing designs of ways to approach an NP-Complete problem. The document's content is appended below. 
+
 To reconstruct Figure One, please run bruteforcesatplot.py in a terminal window.
+
 To reconstruct Figure Two, please run geneticsatplot.py in a terminal window.
 
-
+Sample input files are attached for utilizing bruteforcesat.py, backtrackingsat.py, and geneticsat.py. In their main() definitions, you can alter which file is used. The main() file should be the main reference as a guide to using parts of this implementation in other programs. To create an procedurally generated instance of three-CNF for testing, alter the variables at the beginning of createthreesat.py.
 
 ### 3-CNF Boolean Satisfiability: Optimizations and Considerations
 
