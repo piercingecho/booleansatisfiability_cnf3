@@ -45,10 +45,12 @@ def countThreeSatFile(infile):
 
 
 def main():
-    outfile = 'beeginput.txt'
-    createThreeSatFile(35, 500, outfile)
+    NUM_VAR = 35
+    NUM_CLAUSE = 500
+    OUTFILE = 'beeginput.txt'
+    createThreeSatFile(NUM_VAR, NUM_CLAUSE, OUTFILE)
 
-    numclause, numvar = countThreeSatFile(outfile)
+    numclause, numvar = countThreeSatFile(OUTFILE)
     print("number variables:", numvar)
     print("number clauses:", numclause)
 if __name__ == '__main__':
